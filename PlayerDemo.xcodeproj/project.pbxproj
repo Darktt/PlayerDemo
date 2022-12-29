@@ -13,7 +13,27 @@
 		F2DFCC0E295C12930014E23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DFCC0C295C12930014E23F /* Main.storyboard */; };
 		F2DFCC10295C12930014E23F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2DFCC0F295C12930014E23F /* Assets.xcassets */; };
 		F2DFCC13295C12930014E23F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DFCC11295C12930014E23F /* LaunchScreen.storyboard */; };
+		F2DFCC1E295C1BD80014E23F /* SwiftExtensions.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DFCC1D295C1BD80014E23F /* SwiftExtensions.xcframework */; };
+		F2DFCC1F295C1BD80014E23F /* SwiftExtensions.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F2DFCC1D295C1BD80014E23F /* SwiftExtensions.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2DFCC22295C1C3A0014E23F /* DTVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC21295C1C3A0014E23F /* DTVideoPlayerView.swift */; };
+		F2DFCC24295C1E090014E23F /* PlayerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC23295C1E090014E23F /* PlayerAction.swift */; };
+		F2DFCC28295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC27295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift */; };
+		F2DFCC2A295D76700014E23F /* AVPlayerItemErrorLogEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC29295D766F0014E23F /* AVPlayerItemErrorLogEventExtension.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2DFCC20295C1BD80014E23F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F2DFCC1F295C1BD80014E23F /* SwiftExtensions.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F2DFCC03295C12930014E23F /* PlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +44,11 @@
 		F2DFCC0F295C12930014E23F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2DFCC12295C12930014E23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2DFCC14295C12930014E23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2DFCC1D295C1BD80014E23F /* SwiftExtensions.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SwiftExtensions.xcframework; sourceTree = "<group>"; };
+		F2DFCC21295C1C3A0014E23F /* DTVideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTVideoPlayerView.swift; sourceTree = "<group>"; };
+		F2DFCC23295C1E090014E23F /* PlayerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAction.swift; sourceTree = "<group>"; };
+		F2DFCC27295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItemAccessLogEventExtension.swift; sourceTree = "<group>"; };
+		F2DFCC29295D766F0014E23F /* AVPlayerItemErrorLogEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItemErrorLogEventExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2DFCC1E295C1BD80014E23F /* SwiftExtensions.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +68,7 @@
 			children = (
 				F2DFCC05295C12930014E23F /* PlayerDemo */,
 				F2DFCC04295C12930014E23F /* Products */,
+				F2DFCC1C295C1BD80014E23F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +83,10 @@
 		F2DFCC05295C12930014E23F /* PlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F2DFCC27295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift */,
+				F2DFCC29295D766F0014E23F /* AVPlayerItemErrorLogEventExtension.swift */,
+				F2DFCC23295C1E090014E23F /* PlayerAction.swift */,
+				F2DFCC21295C1C3A0014E23F /* DTVideoPlayerView.swift */,
 				F2DFCC06295C12930014E23F /* AppDelegate.swift */,
 				F2DFCC08295C12930014E23F /* SceneDelegate.swift */,
 				F2DFCC0A295C12930014E23F /* ViewController.swift */,
@@ -65,6 +96,14 @@
 				F2DFCC14295C12930014E23F /* Info.plist */,
 			);
 			path = PlayerDemo;
+			sourceTree = "<group>";
+		};
+		F2DFCC1C295C1BD80014E23F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2DFCC1D295C1BD80014E23F /* SwiftExtensions.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +116,7 @@
 				F2DFCBFF295C12930014E23F /* Sources */,
 				F2DFCC00295C12930014E23F /* Frameworks */,
 				F2DFCC01295C12930014E23F /* Resources */,
+				F2DFCC20295C1BD80014E23F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,8 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2DFCC0B295C12930014E23F /* ViewController.swift in Sources */,
+				F2DFCC22295C1C3A0014E23F /* DTVideoPlayerView.swift in Sources */,
+				F2DFCC28295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift in Sources */,
 				F2DFCC07295C12930014E23F /* AppDelegate.swift in Sources */,
 				F2DFCC09295C12930014E23F /* SceneDelegate.swift in Sources */,
+				F2DFCC24295C1E090014E23F /* PlayerAction.swift in Sources */,
+				F2DFCC2A295D76700014E23F /* AVPlayerItemErrorLogEventExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
