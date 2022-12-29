@@ -30,9 +30,11 @@ class ViewController: UIViewController
     
     @IBOutlet private weak var pauseButton: UIButton!
     
-    @IBOutlet private weak var progressBar: UISlider!
+    @IBOutlet private weak var trackBar: UISlider!
     
     @IBOutlet private weak var durationLabel: UILabel!
+    
+    @IBOutlet private weak var bufferProgressView: UIProgressView!
     
     private lazy var formatter: DateFormatter = {
         
@@ -64,11 +66,13 @@ class ViewController: UIViewController
         
         self.urlField.text = "https://assets.cod1cov.com/doudou/video/preview/74ad04bfdaba4fa88c31678ec59bc676/video.m3u8"
         
+        self.bufferProgressView.progress = 0.0
+        
         self.sendButton.addTarget(self, action: #selector(sendUrlAction(_:)), for: .touchUpInside)
         self.playButton.addTarget(self, action: #selector(playAction(_:)), for: .touchUpInside)
         self.pauseButton.addTarget(self, action: #selector(pauseAction(_:)), for: .touchUpInside)
-        self.progressBar.addTarget(self, action: #selector(startSeekAction(_:)), for: .touchDown)
-        self.progressBar.addTarget(self, action: #selector(finishSeekingAction(_:)), for: .touchUpInside)
+        self.trackBar.addTarget(self, action: #selector(startSeekAction(_:)), for: .touchDown)
+        self.trackBar.addTarget(self, action: #selector(finishSeekingAction(_:)), for: .touchUpInside)
         
         self.registerNotification()
     }
@@ -221,6 +225,7 @@ extension ViewController
             self.setupPlayTime(withPlayer: player)
             self.oberverPlayProgress(withPlayer: player)
             self.setupPlayerStatus(withPlayer: player)
+            self.setupBufferProgress(withPlayer: player)
             self.setupPlayError(withPlayer: player)
         }
         
@@ -229,7 +234,7 @@ extension ViewController
             let date = Date(timeIntervalSince1970: duration)
             let totalDuration: String = self.formatter.string(from: date)
             
-            self.progressBar.maximumValue = Float(duration)
+            self.trackBar.maximumValue = Float(duration)
             self.totalDutation = totalDuration
             self.updateDuration()
         }
@@ -375,6 +380,32 @@ extension ViewController
         self.observations += observation
     }
     
+    func setupBufferProgress(withPlayer player: AVPlayer)
+    {
+        guard let item: AVPlayerItem = player.currentItem else {
+            
+            return
+        }
+        
+        let handler: (AVPlayerItem, NSKeyValueObservedChange<Array<NSValue>>) -> Void = {
+            
+            item, _ in
+            
+            guard let timeRage: CMTimeRange = item.loadedTimeRanges.first?.timeRangeValue else {
+                
+                return
+            }
+            
+            let progress = Float(timeRage.duration.seconds / item.duration.seconds)
+            
+            self.bufferProgressView.progress = progress
+        }
+        
+        let observation = item.observe(\.loadedTimeRanges, options: .new, changeHandler: handler)
+        
+        self.observations += observation
+    }
+    
     func updateDuration(withPlayedTime playedTime: TimeInterval = .zero)
     {
         guard !self.isSeeking else {
@@ -386,7 +417,7 @@ extension ViewController
         let playedTimeString: String = self.formatter.string(from: date)
         let duration: String = playedTimeString + "/" + self.totalDutation.or("")
         
-        self.progressBar.value = Float(playedTime)
+        self.trackBar.value = Float(playedTime)
         self.durationLabel.text = duration
     }
 }

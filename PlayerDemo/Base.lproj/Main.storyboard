@@ -28,7 +28,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlayerDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -119,6 +119,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nPO-eG-dmB">
+                                <rect key="frame" x="20" y="506" width="353" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,12 +129,15 @@
                             <constraint firstItem="CeH-G4-ZVk" firstAttribute="top" secondItem="alf-74-r8Q" secondAttribute="bottom" constant="25" id="1JG-oM-879"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j00-FL-DhL" secondAttribute="trailing" id="Gv0-r1-PPK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="alf-74-r8Q" secondAttribute="trailing" id="IGT-u7-Nhy"/>
+                            <constraint firstItem="nPO-eG-dmB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Igp-oZ-jbA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HDY-HQ-LlO" secondAttribute="trailing" id="Jwj-rc-3h5"/>
                             <constraint firstItem="j00-FL-DhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q7y-lg-t5S"/>
+                            <constraint firstItem="nPO-eG-dmB" firstAttribute="top" secondItem="CeH-G4-ZVk" secondAttribute="bottom" constant="35" id="Qft-mf-2R5"/>
                             <constraint firstItem="alf-74-r8Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SKl-vE-gRq"/>
                             <constraint firstItem="j00-FL-DhL" firstAttribute="top" secondItem="HDY-HQ-LlO" secondAttribute="bottom" id="TUn-ha-lTO"/>
                             <constraint firstItem="CeH-G4-ZVk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UAi-4S-Okk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CeH-G4-ZVk" secondAttribute="trailing" constant="20" id="WRK-aB-tf5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nPO-eG-dmB" secondAttribute="trailing" constant="20" id="bDP-cG-4WT"/>
                             <constraint firstItem="alf-74-r8Q" firstAttribute="top" secondItem="j00-FL-DhL" secondAttribute="bottom" id="hMb-mb-D90"/>
                             <constraint firstItem="HDY-HQ-LlO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kGE-Lt-3es"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CHh-is-TDj" secondAttribute="trailing" constant="20" id="pJb-ML-c6y"/>
@@ -141,13 +147,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="wp0-Kc-ern"/>
                     <connections>
+                        <outlet property="bufferProgressView" destination="nPO-eG-dmB" id="mlM-Bc-CDq"/>
                         <outlet property="durationLabel" destination="CHh-is-TDj" id="BhN-xq-X8t"/>
                         <outlet property="pauseButton" destination="iGY-KE-Ovu" id="I4A-EX-R3j"/>
                         <outlet property="playButton" destination="9IM-wF-9qu" id="Ewa-Nv-MBT"/>
                         <outlet property="playerView" destination="j00-FL-DhL" id="l8D-W5-dGt"/>
-                        <outlet property="progressBar" destination="CeH-G4-ZVk" id="epV-Wj-ezC"/>
                         <outlet property="sendButton" destination="E2P-Ew-FIi" id="5l1-WP-myu"/>
+                        <outlet property="trackBar" destination="CeH-G4-ZVk" id="epV-Wj-ezC"/>
                         <outlet property="urlField" destination="D3T-MO-HpR" id="Kgs-6m-xNc"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="cRD-az-av0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
