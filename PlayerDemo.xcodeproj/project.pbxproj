@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2495441295E7B1E0035276F /* DTPlayerControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2495440295E7B1E0035276F /* DTPlayerControlHandler.swift */; };
+		F2495445295EA84F0035276F /* DTPlayerControlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F2495444295EA84F0035276F /* DTPlayerControlHandler.m */; };
+		F2495448295EAC5C0035276F /* DTPlayerControlConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F2495447295EAC5C0035276F /* DTPlayerControlConfiguration.m */; };
 		F2DFCC07295C12930014E23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC06295C12930014E23F /* AppDelegate.swift */; };
 		F2DFCC09295C12930014E23F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC08295C12930014E23F /* SceneDelegate.swift */; };
 		F2DFCC0B295C12930014E23F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFCC0A295C12930014E23F /* ViewController.swift */; };
@@ -36,6 +39,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F2495440295E7B1E0035276F /* DTPlayerControlHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPlayerControlHandler.swift; sourceTree = "<group>"; };
+		F2495443295EA84F0035276F /* DTPlayerControlHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTPlayerControlHandler.h; sourceTree = "<group>"; };
+		F2495444295EA84F0035276F /* DTPlayerControlHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTPlayerControlHandler.m; sourceTree = "<group>"; };
+		F2495446295EAC5C0035276F /* DTPlayerControlConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTPlayerControlConfiguration.h; sourceTree = "<group>"; };
+		F2495447295EAC5C0035276F /* DTPlayerControlConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTPlayerControlConfiguration.m; sourceTree = "<group>"; };
 		F2DFCC03295C12930014E23F /* PlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DFCC06295C12930014E23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2DFCC08295C12930014E23F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2495442295EA8290035276F /* DTPlayerControlHandler */ = {
+			isa = PBXGroup;
+			children = (
+				F2495446295EAC5C0035276F /* DTPlayerControlConfiguration.h */,
+				F2495447295EAC5C0035276F /* DTPlayerControlConfiguration.m */,
+				F2495443295EA84F0035276F /* DTPlayerControlHandler.h */,
+				F2495444295EA84F0035276F /* DTPlayerControlHandler.m */,
+			);
+			path = DTPlayerControlHandler;
+			sourceTree = "<group>";
+		};
 		F2DFCBFA295C12930014E23F = {
 			isa = PBXGroup;
 			children = (
@@ -83,10 +102,12 @@
 		F2DFCC05295C12930014E23F /* PlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F2495442295EA8290035276F /* DTPlayerControlHandler */,
 				F2DFCC27295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift */,
 				F2DFCC29295D766F0014E23F /* AVPlayerItemErrorLogEventExtension.swift */,
 				F2DFCC23295C1E090014E23F /* PlayerAction.swift */,
 				F2DFCC21295C1C3A0014E23F /* DTVideoPlayerView.swift */,
+				F2495440295E7B1E0035276F /* DTPlayerControlHandler.swift */,
 				F2DFCC06295C12930014E23F /* AppDelegate.swift */,
 				F2DFCC08295C12930014E23F /* SceneDelegate.swift */,
 				F2DFCC0A295C12930014E23F /* ViewController.swift */,
@@ -139,6 +160,7 @@
 				TargetAttributes = {
 					F2DFCC02295C12930014E23F = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -181,6 +203,9 @@
 				F2DFCC0B295C12930014E23F /* ViewController.swift in Sources */,
 				F2DFCC22295C1C3A0014E23F /* DTVideoPlayerView.swift in Sources */,
 				F2DFCC28295D73690014E23F /* AVPlayerItemAccessLogEventExtension.swift in Sources */,
+				F2495445295EA84F0035276F /* DTPlayerControlHandler.m in Sources */,
+				F2495441295E7B1E0035276F /* DTPlayerControlHandler.swift in Sources */,
+				F2495448295EAC5C0035276F /* DTPlayerControlConfiguration.m in Sources */,
 				F2DFCC07295C12930014E23F /* AppDelegate.swift in Sources */,
 				F2DFCC09295C12930014E23F /* SceneDelegate.swift in Sources */,
 				F2DFCC24295C1E090014E23F /* PlayerAction.swift in Sources */,
@@ -329,6 +354,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5PE34DHT4;
@@ -344,9 +371,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PlayerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PlayerDemo.111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -357,6 +386,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5PE34DHT4;
@@ -372,8 +403,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PlayerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PlayerDemo.111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

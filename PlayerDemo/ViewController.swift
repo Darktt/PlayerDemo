@@ -36,6 +36,13 @@ class ViewController: UIViewController
     
     @IBOutlet private weak var bufferProgressView: UIProgressView!
     
+    private lazy var controlHandler: DTPlayerControlHandler = {
+        
+        let manager = DTPlayerControlHandler(delegate: self)
+        
+        return manager
+    }()
+    
     private lazy var formatter: DateFormatter = {
         
         let formatter = DateFormatter()
@@ -68,6 +75,12 @@ class ViewController: UIViewController
         
         self.bufferProgressView.progress = 0.0
         
+        var configuration = self.controlHandler.configuration
+        configuration.gestureScale.seek = 2.0
+        configuration.increment.seek = 45.0
+        
+        self.controlHandler.configuration = configuration
+        self.controlHandler.add(to: self.playerView)
         self.sendButton.addTarget(self, action: #selector(sendUrlAction(_:)), for: .touchUpInside)
         self.playButton.addTarget(self, action: #selector(playAction(_:)), for: .touchUpInside)
         self.pauseButton.addTarget(self, action: #selector(pauseAction(_:)), for: .touchUpInside)
@@ -234,6 +247,7 @@ extension ViewController
             let date = Date(timeIntervalSince1970: duration)
             let totalDuration: String = self.formatter.string(from: date)
             
+            self.controlHandler.totalPlayInterval = duration
             self.trackBar.maximumValue = Float(duration)
             self.totalDutation = totalDuration
             self.updateDuration()
@@ -417,7 +431,40 @@ extension ViewController
         let playedTimeString: String = self.formatter.string(from: date)
         let duration: String = playedTimeString + "/" + self.totalDutation.or("")
         
+        self.controlHandler.playedInterval = playedTime
         self.trackBar.value = Float(playedTime)
         self.durationLabel.text = duration
+    }
+}
+
+// MARK: - Delegate Methods -
+
+extension ViewController: DTPlayerControlHandlerDelegate
+{
+    func controlHandler(willChangeVolumeLevel handler: DTPlayerControlHandler)
+    {
+        
+    }
+    
+    func controlHandler(_ handler: DTPlayerControlHandler, didChangeVolumeLevel level: CGFloat)
+    {
+        
+    }
+    
+    func controlHandler(willBeginSeek handler: DTPlayerControlHandler)
+    {
+        self.isSeeking = true
+    }
+    
+    func controlHandler(_ handler: DTPlayerControlHandler, didSeekToSeconds seconds: TimeInterval)
+    {
+        self.trackBar.value = Float(seconds)
+    }
+    
+    func controlHandler(_ handler: DTPlayerControlHandler, didFinishSeekToSeconds seconds: TimeInterval)
+    {
+        self.isSeeking = false
+        handler.playedInterval = seconds
+        self.sendAction(.seekAction(toSeconds: Float(seconds)))
     }
 }
